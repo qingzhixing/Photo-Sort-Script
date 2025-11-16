@@ -1,7 +1,11 @@
+#!/usr/bin/python3
 import argparse
 from collections import defaultdict
 import datetime
 import os
+
+# 定义阈值，当日文件数量超过该值，才会创建当天文件夹
+THRESHOLD = 20
 
 
 def get_week_folder_name(file_date: datetime.datetime) -> str:
@@ -16,9 +20,6 @@ def get_week_folder_name(file_date: datetime.datetime) -> str:
 
     return week_folder_name
 
-
-# 定义阈值，当日文件数量超过该值，才会创建当天文件夹
-THRESHOLD = 20
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Photo Sort")
