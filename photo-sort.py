@@ -14,9 +14,9 @@ def get_week_folder_name(file_date: datetime.datetime) -> str:
     week_number = week_start.isocalendar()[1]
     week_folder_name = ""
     if week_start.year == week_end.year:
-        week_folder_name = f"{week_start.strftime('%Y.%m.%d')}至{week_end.strftime('%m.%d')} 第{week_number}周"
+        week_folder_name = f"{week_start.strftime('%Y.%m.%d')} 至 {week_end.strftime('%m.%d')} 第{week_number}周"
     else:
-        week_folder_name = f"{week_start.strftime('%Y.%m.%d')}至{week_end.strftime('%Y.%m.%d')} 第{week_number}周"
+        week_folder_name = f"{week_start.strftime('%Y.%m.%d')} 至 {week_end.strftime('%Y.%m.%d')} 第{week_number}周"
 
     return week_folder_name
 
@@ -74,13 +74,16 @@ if __name__ == "__main__":
     for file_key, files in date_files.items():
         print(f"日期 {file_key} 共 {len(files)} 张图片")
 
+        # 提取第一个文件的日期
+        _, _, file_date = files[0]
+
         # 创建周文件夹名称
         week_folder_name = get_week_folder_name(file_date)
         week_folder_path = os.path.join(target_folder, week_folder_name)
 
         # 当日文件夹名称
         day_folder_name = file_date.strftime(file_key)
-        day_folder_path = os.path.join(week_folder_path, day_folder_name)
+        day_folder_path = os.path.join(target_folder, day_folder_name)
 
         current_folder_path = week_folder_path
 
