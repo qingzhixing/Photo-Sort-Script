@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+
+# 照片整理脚本
+# -i INPUT_DIR -o OUTPUT_DIR
+
 import argparse
 from collections import defaultdict
 import datetime
