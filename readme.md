@@ -2,6 +2,9 @@
 
 实际上是文件整理脚本
 
+此项目已使用 Rust 重写: <https://github.com/qingzhixing/rust-photo-sorter>
+包含 GUI 和 CLI 两个版本
+
 ## 使用方法
 
 `python -u ./photo-sort.py -i INPUT_DIR -o OUTPUT_DIR`
